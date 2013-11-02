@@ -61,7 +61,9 @@ public class NumberSpiral {
 		int rowIndex = 0;
 		int columnIndex = 0;
 		
-		//Set the indexes to the center of the spiral
+		/*
+		 * Set the indexes to the center of the spiral
+		 */
 		if ( (totalRows & 1) == 0 ) //if the totalRows is an even number
 		{
 			rowIndex = totalRows / 2 - 1;
@@ -77,25 +79,29 @@ public class NumberSpiral {
 		}
 		else
 		{
-			columnIndex = totalColumns / 2;
+			columnIndex = totalColumns / 2 ;
 		}
 		
-		//counter used to represent the numbers filling the spiral
-		//starts at 0 and counts up to the target
+		/*counter used to represent the numbers filling the spiral
+		*starts at 0 and counts up to the target
+		*/
 		int counter = 0;
 		
-		//set the cell at the center of the spiral to 0
-		numberSpiral.get(rowIndex)[columnIndex] = counter;
-		counter++;
-		
-		//rows and columns increment differently depending on placement within the spiral
+		/*
+		 * rows and columns increment differently depending on placement within the spiral
+		 */
 		int columnDelta;//increment value for the columns
 		int rowDelta;//increment value for the rows
 		
-		//Populate the number spiral
-		// i represents the current square
-		//spiral is constructed starting with even squares in the lower right corner and odd squares in the upper left corner
-		for (int i = 1; i <= squareRoot; i ++)
+		//must add one to the center index because the loop will move 1 to the left prior to the insertion of zero.
+		columnIndex++;
+		
+		/*
+		 * Populate the number spiral
+		 * i represents the current square
+		 * spiral is constructed starting with even squares in the lower right corner and odd squares in the upper left corner
+		 */
+		for (int i = 0; i <= squareRoot; i ++)
 		{
 			//even squares represent lower right corner, numbers progress with rows decreasing or columns increasing
 			if ((i & 1) == 0 )
@@ -175,7 +181,7 @@ public class NumberSpiral {
 			contents.append(" ");
 		}
 		
-		contents.append("   "); //add spacesin between the different values
+		contents.append("   "); //add spaces in between the different values
 		
 		return contents;
 	}
